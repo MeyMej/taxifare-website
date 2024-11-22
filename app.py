@@ -21,8 +21,7 @@ response = requests.get(url, params=params).json()
 # st.write("Fare", response['fare'])
 
 
-df = pd.Dataframe(
-        float(pickup_latitude), float(pickup_longitude),
-        float(dropoff_latitude), float(dropoff_longitude))
-
-st.map(df)
+st.map(pd.DataFrame({
+        'latitude': [pickup_latitude, dropoff_latitude],
+        'longitude': [pickup_longitude, dropoff_longitude]
+    }))
