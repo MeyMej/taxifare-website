@@ -20,7 +20,7 @@ response = requests.get(url, params=params).json()
 #Let's retrieve the prediction from the **JSON** returned by the API...
 # st.write("Fare", response['fare'])
 
-df = {'latitude': [pickup_latitude, dropoff_latitude],
-        'longitude': [pickup_longitude, dropoff_longitude]}
+# df = {'latitude': [pickup_latitude, dropoff_latitude],
+#         'longitude': [pickup_longitude, dropoff_longitude]}
 
-st.map(df)
+# st.map(df)
