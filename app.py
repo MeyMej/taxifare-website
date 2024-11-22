@@ -19,3 +19,12 @@ response = requests.get(url, params=params).json()
 
 #Let's retrieve the prediction from the **JSON** returned by the API...
 st.write("Fare", response['fare'])
+
+
+fare = predict_fare(
+        float(pickup_latitude), float(pickup_longitude),
+        float(dropoff_latitude), float(dropoff_longitude),
+        passenger_count, date_and_time
+    )
+
+st.map(fare)
