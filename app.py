@@ -1,4 +1,6 @@
 import streamlit as st
+import requests
+import pandas as pd
 
 date_and_time = st.text_input('date and time')
 pickup_longitude = st.text_input('pickup longitude')
@@ -6,8 +8,6 @@ pickup_latitude = st.text_input('pickup latitude')
 dropoff_longitude = st.text_input('dropoff longitude')
 dropoff_latitude = st.text_input('dropoff latitude')
 passenger_count = st.text_input('passenger count')
-
-import requests
 
 url = 'https://taxifare.lewagon.ai/predict'
 
@@ -21,11 +21,8 @@ response = requests.get(url, params=params).json()
 # st.write("Fare", response['fare'])
 
 
-import pandas as pd
 df = pd.Dataframe(
         float(pickup_latitude), float(pickup_longitude),
-        float(dropoff_latitude), float(dropoff_longitude),
-        passenger_count, date_and_time
-    )
+        float(dropoff_latitude), float(dropoff_longitude))
 
 st.map(df)
