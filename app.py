@@ -21,10 +21,11 @@ response = requests.get(url, params=params).json()
 # st.write("Fare", response['fare'])
 
 
-fare = response(
+import pandas as pd
+df = pd.Dataframe(
         float(pickup_latitude), float(pickup_longitude),
         float(dropoff_latitude), float(dropoff_longitude),
         passenger_count, date_and_time
     )
 
-st.map(fare)
+st.map(df)
